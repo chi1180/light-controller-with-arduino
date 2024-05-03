@@ -16,12 +16,12 @@ void setup()
     servo.attach(servo_pin);
 
     pinMode(sensor, INPUT);
-    pinMode(touch_pin, INPUT);
 
     servo.write(0);
 }
 
 static int is_first = 1;
+static int is_none_count = 0;
 
 void loop()
 {
@@ -37,15 +37,25 @@ void loop()
             }
 
             is_first = 2;
+
+            if (is_none_count) {
+                is_none_count = 0;
+            }
         }
     } else if (is_first == 2) {
-        Serial.println("SERVO IS EXIT!!");
+        if ( ! is_none_count) {
+            is_none_count ++;
+        } else if (is_none_count == 6) {
+            is_none_count = 0;
 
-        servo.write(deg);
-        delay(500);
-        servo.write(0);
+            Serial.println("SERVO IS EXIT!!");
 
-        is_first = 1;
+            servo.write(deg);
+            delay(500);
+            servo.write(0);
+
+            is_first = 1;
+        }
     }
 
     delay(10000);
