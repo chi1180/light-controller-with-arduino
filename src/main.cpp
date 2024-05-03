@@ -43,9 +43,9 @@ void loop()
             }
         }
     } else if (is_first == 2) {
-        if (is_none_count < 6) {
+        if (is_none_count < 18) {
             is_none_count ++;
-        } else if (is_none_count == 6) {
+        } else {
             is_none_count = 0;
 
             Serial.println("SERVO IS EXIT!!");
