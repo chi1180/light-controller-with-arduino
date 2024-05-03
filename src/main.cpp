@@ -43,7 +43,7 @@ void loop()
             }
         }
     } else if (is_first == 2) {
-        if ( ! is_none_count) {
+        if (is_none_count < 6) {
             is_none_count ++;
         } else if (is_none_count == 6) {
             is_none_count = 0;
