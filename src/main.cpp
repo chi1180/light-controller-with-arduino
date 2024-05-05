@@ -43,7 +43,7 @@ void loop()
             }
         }
     } else if (is_first == 2) {
-        if (is_none_count < 18) {
+        if (is_none_count < 60) {
             is_none_count ++;
         } else {
             is_none_count = 0;
@@ -58,6 +58,6 @@ void loop()
         }
     }
 
-    delay(10000);
+    delay(3000);
 }
 
